@@ -40,13 +40,11 @@ export default function SubmitPage() {
 		e.preventDefault();
 		setIsSubmitting(true);
 
-		// Simulate form submission
 		setTimeout(() => {
 			console.log("Form submitted:", formData);
 			setIsSubmitting(false);
 			setSubmitSuccess(true);
 
-			// Reset form after submission
 			setFormData({
 				resourceName: "",
 				category: "",
@@ -64,7 +62,6 @@ export default function SubmitPage() {
 				additionalInfo: "",
 			});
 
-			// Reset success message after a delay
 			setTimeout(() => {
 				setSubmitSuccess(false);
 			}, 5000);
@@ -76,10 +73,10 @@ export default function SubmitPage() {
 			<section className="min-h-screen p-6">
 				<div className="max-w-3xl mx-auto">
 					<div className="mb-8 text-center">
-						<h1 className="text-3xl font-bold text-blue-900 mb-2">
+						<h1 className="text-3xl font-bold text-blue-900 dark:text-blue-300 mb-2">
 							Submit a Resource
 						</h1>
-						<p className="text-lg text-gray-700">
+						<p className="text-lg text-gray-700 dark:text-gray-300">
 							Help expand our database by submitting a resource that can benefit
 							the Philadelphia community.
 						</p>
@@ -88,10 +85,10 @@ export default function SubmitPage() {
 					<Var>
 						{submitSuccess ? (
 							<T id="submit.page.0">
-								<div className="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+								<div className="bg-green-50 dark:bg-green-900 border-l-4 border-green-500 dark:border-green-600 p-4 mb-6">
 									<div className="flex">
 										<div className="ml-3">
-											<p className="text-sm text-green-700">
+											<p className="text-sm text-green-700 dark:text-green-300">
 												Thank you for your submission! Our team will review the
 												information and add it to our database soon.
 											</p>
@@ -102,11 +99,10 @@ export default function SubmitPage() {
 						) : null}
 					</Var>
 
-					<div className="bg-white rounded-lg shadow p-6">
+					<div className="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-700 p-6">
 						<form onSubmit={handleSubmit}>
-							{/* Resource Information Section */}
 							<div className="mb-6">
-								<h2 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200">
+								<h2 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
 									Resource Information
 								</h2>
 
@@ -114,7 +110,7 @@ export default function SubmitPage() {
 									<div className="mb-4">
 										<label
 											htmlFor="resourceName"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											Resource Name *
 										</label>
@@ -125,14 +121,14 @@ export default function SubmitPage() {
 											value={formData.resourceName}
 											onChange={handleChange}
 											required
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										/>
 									</div>
 
 									<div className="mb-4">
 										<label
 											htmlFor="category"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											Category *
 										</label>
@@ -142,7 +138,7 @@ export default function SubmitPage() {
 											value={formData.category}
 											onChange={handleChange}
 											required
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										>
 											<option value="">Select a category</option>
 											<option value="housing">Housing</option>
@@ -160,7 +156,7 @@ export default function SubmitPage() {
 								<div className="mb-4">
 									<label
 										htmlFor="description"
-										className="block text-gray-700 font-medium mb-2"
+										className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 									>
 										Description *
 									</label>
@@ -171,22 +167,21 @@ export default function SubmitPage() {
 										onChange={handleChange}
 										required
 										rows={3}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										placeholder="Please provide a brief description of the resource..."
 									></textarea>
 								</div>
 							</div>
 
-							{/* Contact Information Section */}
 							<div className="mb-6">
-								<h2 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200">
+								<h2 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
 									Contact Information
 								</h2>
 
 								<div className="mb-4">
 									<label
 										htmlFor="address"
-										className="block text-gray-700 font-medium mb-2"
+										className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 									>
 										Street Address *
 									</label>
@@ -197,7 +192,7 @@ export default function SubmitPage() {
 										value={formData.address}
 										onChange={handleChange}
 										required
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 									/>
 								</div>
 
@@ -205,7 +200,7 @@ export default function SubmitPage() {
 									<div className="mb-4">
 										<label
 											htmlFor="city"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											City *
 										</label>
@@ -216,14 +211,14 @@ export default function SubmitPage() {
 											value={formData.city}
 											onChange={handleChange}
 											required
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										/>
 									</div>
 
 									<div className="mb-4">
 										<label
 											htmlFor="state"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											State *
 										</label>
@@ -234,14 +229,14 @@ export default function SubmitPage() {
 											value={formData.state}
 											onChange={handleChange}
 											required
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										/>
 									</div>
 
 									<div className="mb-4">
 										<label
 											htmlFor="zipCode"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											ZIP Code *
 										</label>
@@ -252,7 +247,7 @@ export default function SubmitPage() {
 											value={formData.zipCode}
 											onChange={handleChange}
 											required
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										/>
 									</div>
 								</div>
@@ -261,7 +256,7 @@ export default function SubmitPage() {
 									<div className="mb-4">
 										<label
 											htmlFor="phone"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											Phone Number
 										</label>
@@ -271,7 +266,7 @@ export default function SubmitPage() {
 											name="phone"
 											value={formData.phone}
 											onChange={handleChange}
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 											placeholder="(123) 456-7890"
 										/>
 									</div>
@@ -279,7 +274,7 @@ export default function SubmitPage() {
 									<div className="mb-4">
 										<label
 											htmlFor="website"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											Website
 										</label>
@@ -289,23 +284,22 @@ export default function SubmitPage() {
 											name="website"
 											value={formData.website}
 											onChange={handleChange}
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 											placeholder="https://example.org"
 										/>
 									</div>
 								</div>
 							</div>
 
-							{/* Additional Details Section */}
 							<div className="mb-6">
-								<h2 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200">
+								<h2 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
 									Additional Details
 								</h2>
 
 								<div className="mb-4">
 									<label
 										htmlFor="hours"
-										className="block text-gray-700 font-medium mb-2"
+										className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 									>
 										Hours of Operation
 									</label>
@@ -315,7 +309,7 @@ export default function SubmitPage() {
 										name="hours"
 										value={formData.hours}
 										onChange={handleChange}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										placeholder="e.g., Mon-Fri 9am-5pm, Sat 10am-2pm"
 									/>
 								</div>
@@ -323,7 +317,7 @@ export default function SubmitPage() {
 								<div className="mb-4">
 									<label
 										htmlFor="eligibility"
-										className="block text-gray-700 font-medium mb-2"
+										className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 									>
 										Eligibility Requirements
 									</label>
@@ -333,7 +327,7 @@ export default function SubmitPage() {
 										value={formData.eligibility}
 										onChange={handleChange}
 										rows={2}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										placeholder="Who is eligible to receive this service?"
 									></textarea>
 								</div>
@@ -341,7 +335,7 @@ export default function SubmitPage() {
 								<div className="mb-4">
 									<label
 										htmlFor="additionalInfo"
-										className="block text-gray-700 font-medium mb-2"
+										className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 									>
 										Additional Information
 									</label>
@@ -351,15 +345,14 @@ export default function SubmitPage() {
 										value={formData.additionalInfo}
 										onChange={handleChange}
 										rows={3}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										placeholder="Any other details that might be helpful..."
 									></textarea>
 								</div>
 							</div>
 
-							{/* Submitter Information Section */}
 							<div className="mb-6">
-								<h2 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200">
+								<h2 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
 									Your Contact Information
 								</h2>
 
@@ -367,7 +360,7 @@ export default function SubmitPage() {
 									<div className="mb-4">
 										<label
 											htmlFor="contactName"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											Your Name
 										</label>
@@ -377,14 +370,14 @@ export default function SubmitPage() {
 											name="contactName"
 											value={formData.contactName}
 											onChange={handleChange}
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										/>
 									</div>
 
 									<div className="mb-4">
 										<label
 											htmlFor="contactEmail"
-											className="block text-gray-700 font-medium mb-2"
+											className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
 										>
 											Your Email
 										</label>
@@ -394,18 +387,17 @@ export default function SubmitPage() {
 											name="contactEmail"
 											value={formData.contactEmail}
 											onChange={handleChange}
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
 										/>
 									</div>
 								</div>
 							</div>
 
-							{/* Form Actions */}
 							<div className="flex justify-end">
 								<button
 									type="submit"
 									disabled={isSubmitting}
-									className={`px-6 py-2 rounded-md text-white font-medium ${isSubmitting ? "bg-blue-400" : "bg-blue-600 hover:bg-blue-700"} transition-colors duration-200`}
+									className={`px-6 py-2 rounded-md text-white font-medium ${isSubmitting ? "bg-blue-400 dark:bg-blue-600" : "bg-blue-600 hover:bg-blue-700 dark:bg-blue-800 dark:hover:bg-blue-700"} transition-colors duration-200`}
 								>
 									<Var>
 										{isSubmitting ? (
@@ -419,7 +411,7 @@ export default function SubmitPage() {
 						</form>
 					</div>
 
-					<div className="mt-8 text-center text-gray-600">
+					<div className="mt-8 text-center text-gray-600 dark:text-gray-400">
 						<p>
 							Thank you for contributing to our community resources directory.
 							Your submission will be reviewed within 5-7 business days.

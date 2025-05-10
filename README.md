@@ -1,6 +1,11 @@
 # IndexPHL
 
+
+
+
 **Your Guide to Navigating Philly, One Resource at a Time**
+
+[Watch the Demo Video](https://www.youtube.com/embed/YDASd6kd8J8?si=-f6b5JowM_czbh7w)
 
 ![IndexPHL Logo](public/logo.png) 
 
@@ -100,6 +105,7 @@ To get a copy of the project up and running on your local machine:
 4.  Use the category cards on the Home page to navigate to the Categories page (`/categories`).
 5.  On the Categories page, see the list of main resource categories. (Links on this page go to category-specific pages, which might be placeholders in the MVP).
 6.  Use the language toggle in the Navbar to switch between English, Spanish, and Ukrainian. Note that translations will only appear if they have been completed and published via the General Translation platform.
+7. Light and dark modes.
 
 ## Future Enhancements
 
@@ -108,8 +114,8 @@ To get a copy of the project up and running on your local machine:
 * AI-Powered Smart Search and AI Assistant for natural language queries.
 * More detailed resource information pages.
 * Ability for users to submit new resources.
-* Support for more languages.
-* Improved UI/UX design.
+* Do-To list for the people who start their lives from scratch
+* Other Resources
 
 ## Team
 

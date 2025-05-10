@@ -1,4 +1,3 @@
-// app/map/page.tsx
 "use client";
 
 import { useEffect } from "react";
@@ -9,7 +8,9 @@ const InteractiveMap = dynamic(() => import("@/components/InteractiveMap"), {
 	ssr: false,
 	loading: () => (
 		<T id="map.page.0">
-			<p>Loading map...</p>
+			<div className="flex justify-center items-center h-full p-6 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg">
+				<p>Loading map...</p>
+			</div>
 		</T>
 	),
 });
@@ -21,12 +22,10 @@ export default function MapPage() {
 			if (elem.requestFullscreen) {
 				elem.requestFullscreen();
 			} else if ("webkitRequestFullscreen" in elem) {
-				/* Safari */
 				(
 					elem as HTMLElement & { webkitRequestFullscreen: () => void }
 				).webkitRequestFullscreen();
 			} else if ("msRequestFullscreen" in elem) {
-				/* IE11 */
 				(
 					elem as HTMLElement & { msRequestFullscreen: () => void }
 				).msRequestFullscreen();

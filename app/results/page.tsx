@@ -1,4 +1,3 @@
-// app/results/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -13,20 +12,17 @@ interface Resource {
 }
 
 export default function ResultsPage() {
-  // Removed the 'view' state and setView
-  const [searchResults, setSearchResults] = useState<Resource[]>([]); // State to hold search results
+  const [searchResults, setSearchResults] = useState<Resource[]>([]);
 
-  const searchParams = useSearchParams(); // Get search parameters from the URL
-  const query = searchParams.get("query") || ""; // Get the 'query' parameter
+  const searchParams = useSearchParams();
+  const query = searchParams.get("query") || "";
 
-  // Effect to perform search when the component mounts or query changes
   useEffect(() => {
     if (!query.trim()) {
-      setSearchResults([]); // Clear results if query is empty
+      setSearchResults([]);
       return;
     }
 
-    // Perform the search filtering on the local data
     const lowerCaseQuery = query.toLowerCase();
     const filteredResults = searchData.filter(
       (resource) =>
@@ -34,19 +30,19 @@ export default function ResultsPage() {
         resource.description.toLowerCase().includes(lowerCaseQuery),
     );
 
-    setSearchResults(filteredResults); // Update the results state
-  }, [query]); // Re-run effect when the query changes
+    setSearchResults(filteredResults);
+  }, [query]);
 
   return (
     <T id="results.page.3">
-      <section className="min-h-screen p-6 bg-white">
+      <section className="min-h-screen p-6 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-300 mb-4">
             Search Results
             <Var>
               {query && (
                 <T id="results.page.0">
-                  <span className="text-gray-600">
+                  <span className="text-gray-600 dark:text-gray-400">
                     {" "}
                     for &quot;<Var>{query}</Var>&quot;
                   </span>
@@ -55,36 +51,29 @@ export default function ResultsPage() {
             </Var>
           </h1>
 
-          {/* Removed the Toggle Buttons div */}
-
-          {/* Content Area - Only List View */}
           <div>
-            {/* Display actual search results or messages */}
             <Var>
               {query.trim() === "" ? (
                 <T id="results.page.1">
-                  <p className="text-gray-700">Please enter a search query.</p>
+                  <p className="text-gray-700 dark:text-gray-300">Please enter a search query.</p>
                 </T>
               ) : searchResults.length > 0 ? (
                 <ul className="mt-4 space-y-4">
                   {searchResults.map((resource) => (
-                    // Display each search result
                     <li
                       key={resource.id}
-                      className="p-4 bg-gray-100 rounded shadow"
+                      className="p-4 bg-gray-100 dark:bg-gray-800 rounded shadow dark:shadow-gray-700"
                     >
-                      <h3 className="text-xl font-bold text-blue-800">
+                      <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300">
                         {resource.name}
                       </h3>
-                      <p className="text-gray-600">{resource.description}</p>
-                      {/* Add other resource details here later */}
+                      <p className="text-gray-600 dark:text-gray-400">{resource.description}</p>
                     </li>
                   ))}
                 </ul>
               ) : (
                 <T id="results.page.2">
-                  {/* Message for no results found */}
-                  <p className="text-gray-700">
+                  <p className="text-gray-700 dark:text-gray-300">
                     No resources found for &quot;<Var>{query}</Var>&quot;.
                   </p>
                 </T>

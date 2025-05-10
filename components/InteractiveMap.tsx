@@ -1,19 +1,16 @@
-// components/InteractiveMap.tsx
 "use client";
 
-import { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useEffect } from "react"; // Keep useState, useEffect might not be needed
+import { MapContainer, TileLayer } from "react-leaflet"; // Remove Marker, Popup
 import L from "leaflet";
 
 import "leaflet/dist/leaflet.css";
-import { Var, T } from "gt-next";
 
 export default function InteractiveMap() {
-	const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
-		null,
-	);
+	// Removed the position state hook
 
 	useEffect(() => {
+		// Keep the Leaflet marker icon fix if needed for any other markers you might add
 		delete (L.Icon.Default.prototype as unknown as { _getIconUrl?: () => void })
 			._getIconUrl;
 		L.Icon.Default.mergeOptions({
@@ -23,54 +20,27 @@ export default function InteractiveMap() {
 			shadowUrl:
 				"https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
 		});
+		// Removed the fetch useEffect and interval
+	}, []); // Empty dependency array means it runs once on mount
 
-		const fetchData = async () => {
-			try {
-				const response = await fetch("https://wanderdrone.appspot.com/");
-				const data = await response.json();
-				if (data && data.geometry && data.geometry.coordinates) {
-					const [lng, lat] = data.geometry.coordinates;
-					setPosition({ lat, lng });
-				} else {
-					console.error("Invalid data structure from wanderdrone:", data);
-				}
-			} catch (error) {
-				console.error("Error fetching live data:", error);
-			}
-		};
-
-		fetchData();
-		const interval = setInterval(fetchData, 5000);
-		return () => clearInterval(interval);
-	}, []);
-
-	const defaultCenter = { lat: 39.9526, lng: -75.1652 };
+	const defaultCenter = { lat: 39.9526, lng: -75.1652 }; // Default Philly center
 
 	return (
 		<MapContainer
-			center={position || defaultCenter}
+			center={defaultCenter} // Always use the default center
 			zoom={13}
 			scrollWheelZoom={true}
 			className="w-full h-full rounded-lg shadow-md"
-			style={{ height: "500px", width: "100%" }}
+			style={{ height: "500px", width: "100%" }} // Ensure map container has dimensions
 		>
 			<TileLayer
 				attribution="&copy; OpenStreetMap contributors"
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
 
-			{position && (
-				<T id="components.interactivemap.0">
-					<Marker position={position}>
-						<Popup>
-							Current Location:
-							<br />
-							Lat: <Var>{position.lat.toFixed(4)}</Var>, Lng:{" "}
-							<Var>{position.lng.toFixed(4)}</Var>
-						</Popup>
-					</Marker>
-				</T>
-			)}
+			{/* Removed the Marker and Popup based on the fetched position */}
+			{/* Add other Markers here later if you want to display static resource locations */}
+
 		</MapContainer>
 	);
 }

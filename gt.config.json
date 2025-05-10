@@ -3,5 +3,33 @@
   "locales": [
     "es",
     "uk"
-  ]
+  ],
+  "files": {
+    "json": {
+      "include": [
+        "./**/[locale]/*.json"
+      ]
+    },
+    "md": {
+      "include": [
+        "./**/[locale]/*.md"
+      ]
+    },
+    "mdx": {
+      "include": [
+        "./**/[locale]/*.mdx"
+      ]
+    },
+    "ts": {
+      "include": [
+        "./**/[locale]/*.ts"
+      ]
+    },
+    "js": {
+      "include": [
+        "./**/[locale]/*.js"
+      ]
+    }
+  },
+  "_versionId": "744c0c9cf8c6d4ca925a54bfa19bffefb217f37519d2e2cdaefe7b5f0d7b504a"
 }

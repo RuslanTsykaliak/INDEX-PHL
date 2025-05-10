@@ -19,13 +19,14 @@ export const metadata: Metadata = {
 	description: "IndexPHL: An AI-powered civic guide to essential local resources in Philadelphia for residents and newcomers - food, housing, health, and more.",
 };
 
+
 export default async function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`bg-white dark:bg-gray-900 ${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				<GTProvider>
 					<Navbar />
