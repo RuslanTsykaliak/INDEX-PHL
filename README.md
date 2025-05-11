@@ -11,7 +11,7 @@
 
 ## Project Description
 
-IndexPHL is designed as an AI-powered civic guide to help Philadelphia residents, particularly newcomers and underserved communities, quickly find essential local resources such as food assistance, housing options, healthcare services, transportation information, and more. Our goal is to consolidate scattered information from sources like OpenDataPhilly into a simple, accessible, and searchable platform.
+IndexPHL is designed as an AI-powered civic guide to help Philadelphia residents, particularly newcomers and underserved communities, quickly find essential local resources such as food assistance, housing options, healthcare services, transportation information, and more. This project was built for the Code & Coffee Philly Tech Week Hackathon. Our goal is to consolidate scattered information from sources like OpenDataPhilly into a simple, accessible, and searchable platform.
 
 ## Problem & Solution
 
